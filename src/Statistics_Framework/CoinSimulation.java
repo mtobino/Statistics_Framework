@@ -2,6 +2,7 @@ package Statistics_Framework;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Function;
 import java.util.function.Predicate;
 
 /**
@@ -19,10 +20,8 @@ public class CoinSimulation extends SimulationTemplate {
     }
 
     @Override
-    public void run(Predicate predicate) {
-        if(predicate.test("yerr")){
-            displayResults();
-        }
+    public void run(Function function) {
+        System.out.println(function.apply(3));
 
     }
 

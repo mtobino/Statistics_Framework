@@ -1,5 +1,6 @@
 package Statistics_Framework;
 
+import java.util.function.Function;
 import java.util.function.Predicate;
 
 /**
@@ -9,12 +10,12 @@ public abstract class SimulationTemplate {
         /**
          * The Simulate template method that each simulation will follow
          *
-         * @param predicate     the predicate the simulation will be running
+         * @param function     the function the simulation will be running
          */
-        public final void simulate(Predicate predicate)
+        public final void simulate(Function function)
         {
                 setup();
-                run(predicate);
+                run(function);
                 displayResults();
         }
 
@@ -26,9 +27,9 @@ public abstract class SimulationTemplate {
         /**
          * Will run the predicate passed through
          *
-         * @param predicate     the predicate that is being tested
+         * @param function     the function that is being tested
          */
-        public abstract void run(Predicate predicate);
+        public abstract void run(Function function);
 
         /**
          * Display the results

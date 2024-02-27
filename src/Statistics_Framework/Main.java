@@ -11,6 +11,6 @@ public class Main {
         Consumer<Integer> sum = (t) -> t = t + 1;
         Function<Integer, Integer> func = (f) -> f > 0 ? 1 : -1; // I am thinking we switch from predicates to functions to capture the return values that Dr. Baliga wants.
 
-        sim.simulate(pred);
+        sim.simulate(func);
     }
 }

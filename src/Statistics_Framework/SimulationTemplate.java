@@ -9,27 +9,23 @@ import java.util.function.Predicate;
 public abstract class SimulationTemplate {
         /**
          * The Simulate template method that each simulation will follow
-         *
-         * @param function     the function the simulation will be running
          */
-        public final void simulate(Function function)
+        public final void simulate()
         {
                 setup();
-                run(function);
+                run();
                 displayResults();
         }
 
         /**
-         * Will Setup the generators for each class
+         * Will setup the generators for each class
          */
         public abstract void setup();
 
         /**
-         * Will run the predicate passed through
-         *
-         * @param function     the function that is being tested
+         * Will run the simulation
          */
-        public abstract void run(Function function);
+        public abstract void run();
 
         /**
          * Display the results

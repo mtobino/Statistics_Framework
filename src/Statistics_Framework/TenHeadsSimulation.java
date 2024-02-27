@@ -3,7 +3,8 @@ package Statistics_Framework;
 import java.util.function.Function;
 
 /**
- * Coin Simulation implementation of the Simulation template
+ * Coin Simulation implementation of the Simulation template.
+ * Simulates how many tosses it takes to get 10 consecutive heads.
  */
 public class TenHeadsSimulation extends SimulationTemplate {
     private GeneratorBehavior<Boolean> coinGenerator;

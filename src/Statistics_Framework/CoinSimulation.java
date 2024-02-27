@@ -4,13 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
 
+/**
+ * Coin Simulation implementation of the Simulation template
+ */
 public class CoinSimulation extends SimulationTemplate {
-    Generator<Boolean> yer;
-    List<Double> chances = new ArrayList<>(2);
+    private GeneratorBehavior<Boolean> coinGenerator;
+
+    //not sure if we need this list
+    // List<Double> chances = new ArrayList<>(2);
 
     @Override
     public void setup() {
-        yer = new CoinGenerator();
+        coinGenerator = new CoinGeneratorBehavior();
     }
 
     @Override

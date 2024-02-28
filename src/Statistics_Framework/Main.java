@@ -6,13 +6,13 @@ import java.util.function.Function;
 public class Main {
 
     public static void main(String[] args){
-        SimulationTemplate sim = new CoinSimulation();
-//        Predicate<String> pred = (p) -> p.equals("yerr");
-//        Consumer<Integer> sum = (t) -> t = t + 1;
-//
-//        Function<GeneratorBehavior, Answer> func = (f) -> new Answer<>(f.generate());// I am thinking we switch from predicates to functions to capture the return values that Dr. Baliga wants.
+        SimulationTemplate coinSimulation = new CoinSimulation();
+        SimulationTemplate diceSimulation = new DiceSimulation();
+
         Main main = new Main();
-        sim.simulate(main.getFunction1());
+        coinSimulation.simulate(main.getFunction1());
+        diceSimulation.simulate((main.getFunction2()));
+
     }
 
     public Function<GeneratorBehavior<Boolean>, Answer> getFunction1(){
@@ -45,5 +45,26 @@ public class Main {
             }
             return new Answer(average);
         });
+    }
+
+    public Function<GeneratorBehavior<Integer>, Answer> getFunction2(){
+        return (diceGenerator -> {
+            int fourCount = 0;
+            final int TIMES_TO_RUN = 500;
+
+            int roll;
+            for(int i = 0; i < TIMES_TO_RUN; i++) {
+                do {
+                    roll = diceGenerator.generate() + diceGenerator.generate();
+                } while (roll != 4 && roll != 8);
+                if(roll == 4) { fourCount++; }
+            }
+
+            System.out.println("Probability of rolling a 4 before an 8: " +
+                    ( (double) fourCount / (double) TIMES_TO_RUN * 100.0) + "%"
+            );
+            return new Answer(( (double) fourCount / (double) TIMES_TO_RUN * 100.0));
+        });
+
     }
 }

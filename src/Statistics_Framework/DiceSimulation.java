@@ -1,20 +1,18 @@
 package Statistics_Framework;
 
 import java.util.function.Function;
-/**
- * Coin Simulation implementation of the Simulation template
- */
-public class CoinSimulation extends SimulationTemplate {
-    private GeneratorBehavior<Boolean> coinGenerator;
+
+public class DiceSimulation extends SimulationTemplate{
+    private GeneratorBehavior<Integer> diceGenerator;
 
     @Override
     public void setup() {
-        coinGenerator = new CoinGeneratorBehavior();
+        diceGenerator = new DiceGeneratorBehavior();
     }
 
     @Override
     public void run(Function function) {
-        answer = (Answer) function.apply(coinGenerator);
+        answer = (Answer) function.apply(diceGenerator);
 
     }
 

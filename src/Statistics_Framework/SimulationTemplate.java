@@ -7,6 +7,7 @@ import java.util.function.Predicate;
  * Template class for all Simulations
  */
 public abstract class SimulationTemplate {
+        protected Answer answer;
         /**
          * The Simulate template method that each simulation will follow
          *

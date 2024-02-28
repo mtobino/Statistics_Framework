@@ -12,7 +12,7 @@ public class DiceGeneratorBehavior implements GeneratorBehavior<Integer> {
     /**
      * Generates a random integer value to represent a dice roll.
      *
-     * @return  an integer between 2 and 12.
+     * @return  an integer between 1 and 6.
      */
     public Integer generate() { return rand.nextInt(1,7); }
 }

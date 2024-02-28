@@ -2,6 +2,7 @@ package Statistics_Framework;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Function;
 import java.util.function.Predicate;
 
 /**
@@ -9,9 +10,7 @@ import java.util.function.Predicate;
  */
 public class CoinSimulation extends SimulationTemplate {
     private GeneratorBehavior<Boolean> coinGenerator;
-
-    //not sure if we need this list
-    // List<Double> chances = new ArrayList<>(2);
+    private Answer answer;
 
     @Override
     public void setup() {
@@ -19,15 +18,13 @@ public class CoinSimulation extends SimulationTemplate {
     }
 
     @Override
-    public void run(Predicate predicate) {
-        if(predicate.test("yerr")){
-            displayResults();
-        }
+    public void run(Function function) {
+        answer = (Answer) function.apply(coinGenerator);
 
     }
 
     @Override
     public void displayResults() {
-        System.out.println("hahaha");
+        System.out.println("The Answer to your function was: " + answer.getAnswer());
     }
 }

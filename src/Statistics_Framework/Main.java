@@ -9,8 +9,9 @@ public class Main {
         SimulationTemplate sim = new CoinSimulation();
         Predicate<String> pred = (p) -> p.equals("yerr");
         Consumer<Integer> sum = (t) -> t = t + 1;
-        Function<Integer, Integer> func = (f) -> f > 0 ? 1 : -1; // I am thinking we switch from predicates to functions to capture the return values that Dr. Baliga wants.
 
-        sim.simulate(pred);
+        Function<GeneratorBehavior, Answer> func = (f) -> new Answer<>(f.generate());// I am thinking we switch from predicates to functions to capture the return values that Dr. Baliga wants.
+
+        sim.simulate(func);
     }
 }

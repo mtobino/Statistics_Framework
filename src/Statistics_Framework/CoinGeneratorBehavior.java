@@ -1,6 +1,5 @@
 package Statistics_Framework;
 
-
 import java.util.Random;
 
 /**

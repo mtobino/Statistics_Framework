@@ -5,7 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a0688e02-0a04-465c-bb53-17377d545e9b" name="Changes" comment="initial commit">
+      <change afterPath="$PROJECT_DIR$/src/Statistics_Framework/Answer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Statistics_Framework/DiceGeneratorBehavior.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Statistics_Framework/DiceSimulation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Statistics_Framework/Problems.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Statistics_Framework/CoinGeneratorBehavior.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Statistics_Framework/CoinGeneratorBehavior.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Statistics_Framework/CoinSimulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Statistics_Framework/CoinSimulation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Statistics_Framework/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Statistics_Framework/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Statistics_Framework/SimulationTemplate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Statistics_Framework/SimulationTemplate.java" afterDir="false" />
@@ -33,6 +38,9 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
 }</component>
@@ -42,15 +50,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;G:/My Drive/OOD/Statistics_Framework_Project/src/Statistics_Framework&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "Elijah",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "G:/My Drive/OOD/Statistics_Framework_Project/src/Statistics_Framework"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="G:\My Drive\OOD\Statistics_Framework_Project\src\Statistics_Framework" />
@@ -82,6 +91,29 @@
     </task>
     <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="Elijah" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commit" />

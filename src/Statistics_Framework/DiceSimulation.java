@@ -4,19 +4,19 @@ package Statistics_Framework;
 import java.util.function.BiFunction;
 
 /**
- * Coin Simulation implementation of the Simulation template
+ * Dice Simulation implementation of the Simulation template
  */
-public class CoinSimulation extends SimulationTemplate {
-    private GeneratorBehavior<Boolean> coinGenerator;
+public class DiceSimulation extends SimulationTemplate{
+    private GeneratorBehavior<Integer> diceGenerator;
 
     @Override
     public void setup() {
-        coinGenerator = new CoinGeneratorBehavior();
+        diceGenerator = new DiceGeneratorBehavior();
     }
 
     @Override
     public void run(BiFunction function, Object[] args) {
-        answer = (Answer) function.apply(coinGenerator, args);
+        answer = (Answer) function.apply(diceGenerator, args);
     }
 
     @Override

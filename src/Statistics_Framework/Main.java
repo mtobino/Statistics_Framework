@@ -1,16 +1,20 @@
 package Statistics_Framework;
 
-import java.util.function.Predicate;
-import java.util.function.Consumer;
-import java.util.function.Function;
 public class Main {
 
     public static void main(String[] args){
-        SimulationTemplate sim = new CoinSimulation();
-        Predicate<String> pred = (p) -> p.equals("yerr");
-        Consumer<Integer> sum = (t) -> t = t + 1;
-        Function<Integer, Integer> func = (f) -> f > 0 ? 1 : -1; // I am thinking we switch from predicates to functions to capture the return values that Dr. Baliga wants.
+        SimulationTemplate coinSim = new CoinSimulation();
+        SimulationTemplate diceSim = new DiceSimulation();
 
-        sim.simulate(func);
+        // arguments -> [boolean consecutive, boolean tracked face, int amount, int trials]
+        Object[] coinArguments = {true, true, 10, 20};
+
+        // arguments -> [int amount of dice, int trials, int first sum, int second sum]
+        Object[] diceArguments = {2, 500, 4, 8}; // if second sum = -1, tracks rolls to reach first sum
+
+        Problems problems = new Problems();
+        coinSim.simulate(problems.coinProblem(), coinArguments); // consecutive 10 heads
+        System.out.println();
+        diceSim.simulate(problems.diceProblem(), diceArguments); // roll 4 before 8
     }
 }

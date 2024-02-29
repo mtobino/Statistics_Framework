@@ -1,21 +1,22 @@
 package Statistics_Framework;
 
-import java.util.function.Function;
-import java.util.function.Predicate;
+// import java.util.function.Function;
+import java.util.function.BiFunction;
 
 /**
  * Template class for all Simulations
  */
 public abstract class SimulationTemplate {
+        protected Answer answer;
         /**
          * The Simulate template method that each simulation will follow
          *
          * @param function     the function the simulation will be running
          */
-        public final void simulate(Function function)
+        public final void simulate(BiFunction function, Object[] args)
         {
                 setup();
-                run(function);
+                run(function, args);
                 displayResults();
         }
 
@@ -29,7 +30,7 @@ public abstract class SimulationTemplate {
          *
          * @param function     the function that is being tested
          */
-        public abstract void run(Function function);
+        public abstract void run(BiFunction function, Object[] args);
 
         /**
          * Display the results

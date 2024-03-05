@@ -12,7 +12,7 @@ public class Main {
         System.out.println();
         diceSimulation.simulate(main.getCompSumOfFourBeforeEight(), "What is the probability I roll a dice computational sum of 4 before an 8?");
         System.out.println();
-        coinSimulation.simulate(main.getFunction3(), "On average, how many coin tosses till I get a computational sum of 4 if heads is equal to 1 and tails is equal to -1?");
+        coinSimulation.simulate(main.getCompSumOfFourWithCoin(), "On average, how many coin tosses till I get a computational sum of 4 if heads is equal to 1 and tails is equal to -1?");
     }
 
     public Function<CoinGeneratorBehavior, Answer> getTenCoinsInARow(){
@@ -68,7 +68,7 @@ public class Main {
 
     }
 
-    public Function<CoinGeneratorBehavior, Answer> getFunction3(){
+    public Function<CoinGeneratorBehavior, Answer> getCompSumOfFourWithCoin(){
         return (coinGeneratorBehavior -> {
             final int TIMES_TO_RUN = 30;
             int[] tossesTaken = new int[TIMES_TO_RUN];

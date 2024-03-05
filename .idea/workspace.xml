@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a0688e02-0a04-465c-bb53-17377d545e9b" name="Changes" comment="using an answer class">
+    <list default="true" id="a0688e02-0a04-465c-bb53-17377d545e9b" name="Changes" comment="Dice question">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Statistics_Framework/CoinSimulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Statistics_Framework/CoinSimulation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Statistics_Framework/DiceSimulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Statistics_Framework/DiceSimulation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Statistics_Framework/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Statistics_Framework/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Statistics_Framework/SimulationTemplate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Statistics_Framework/SimulationTemplate.java" afterDir="false" />
     </list>
@@ -41,15 +43,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;G:/My Drive/OOD/Statistics_Framework_Project/src/Statistics_Framework&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "G:/My Drive/OOD/Fox_and_Rabbits"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="G:\My Drive\OOD\Statistics_Framework_Project\src\Statistics_Framework" />
@@ -87,12 +89,39 @@
       <option name="project" value="LOCAL" />
       <updated>1709142161214</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="baseline implementation works">
+      <option name="closed" value="true" />
+      <created>1709144103899</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1709144103899</updated>
+    </task>
+    <task id="LOCAL-00004" summary="coin implementation works">
+      <option name="closed" value="true" />
+      <created>1709146651047</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1709146651047</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Dice question">
+      <option name="closed" value="true" />
+      <created>1709148614185</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1709148614185</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commit" />
     <MESSAGE value="using an answer class" />
-    <option name="LAST_COMMIT_MESSAGE" value="using an answer class" />
+    <MESSAGE value="baseline implementation works" />
+    <MESSAGE value="coin implementation works" />
+    <MESSAGE value="Dice question" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dice question" />
   </component>
 </project>

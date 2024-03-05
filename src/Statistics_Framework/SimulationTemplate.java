@@ -13,11 +13,11 @@ public abstract class SimulationTemplate {
          *
          * @param function     the function the simulation will be running
          */
-        public final void simulate(Function function)
+        public final void simulate(Function function, String prompt)
         {
                 setup();
                 run(function);
-                displayResults();
+                displayResults(prompt);
         }
 
         /**
@@ -35,7 +35,10 @@ public abstract class SimulationTemplate {
         /**
          * Display the results
          */
-        public abstract void displayResults();
+        public void displayResults(String prompt)
+        {
+                System.out.println(prompt + "\nAnswer: " + answer.getAnswer());
+        }
 
 
 

@@ -15,9 +15,4 @@ public class DiceSimulation extends SimulationTemplate{
         answer = (Answer) function.apply(diceGenerator);
 
     }
-
-    @Override
-    public void displayResults() {
-        System.out.println("The Answer to your function was: " + answer.getAnswer());
-    }
 }

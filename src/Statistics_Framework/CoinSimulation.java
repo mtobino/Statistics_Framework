@@ -17,9 +17,4 @@ public class CoinSimulation extends SimulationTemplate {
         answer = (Answer) function.apply(coinGenerator);
 
     }
-
-    @Override
-    public void displayResults() {
-        System.out.println("The Answer to your function was: " + answer.getAnswer());
-    }
 }

@@ -1,21 +1,21 @@
 package Statistics_Framework;
 
-import java.util.function.Predicate;
-import java.util.function.Consumer;
 import java.util.function.Function;
 public class Main {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         SimulationTemplate coinSimulation = new CoinSimulation();
         SimulationTemplate diceSimulation = new DiceSimulation();
 
         Main main = new Main();
-        coinSimulation.simulate(main.getFunction1());
-        diceSimulation.simulate((main.getFunction2()));
-
+        coinSimulation.simulate(main.getTenCoinsInARow(), "On average, how many coin tosses till I get 10 heads in a row?");
+        System.out.println();
+        diceSimulation.simulate(main.getCompSumOfFourBeforeEight(), "What is the probability I roll a dice computational sum of 4 before an 8?");
+        System.out.println();
+        coinSimulation.simulate(main.getFunction3(), "On average, how many coin tosses till I get a computational sum of 4 if heads is equal to 1 and tails is equal to -1?");
     }
 
-    public Function<GeneratorBehavior<Boolean>, Answer> getFunction1(){
+    public Function<CoinGeneratorBehavior, Answer> getTenCoinsInARow(){
         return (generatorBehavior -> {
             final int TIMES_TO_RUN = 20;
             int[] tossesTaken = new int[TIMES_TO_RUN];
@@ -47,7 +47,7 @@ public class Main {
         });
     }
 
-    public Function<GeneratorBehavior<Integer>, Answer> getFunction2(){
+    public Function<DiceGeneratorBehavior, Answer> getCompSumOfFourBeforeEight(){
         return (diceGenerator -> {
             int fourCount = 0;
             final int TIMES_TO_RUN = 500;
@@ -66,5 +66,39 @@ public class Main {
             return new Answer(( (double) fourCount / (double) TIMES_TO_RUN * 100.0));
         });
 
+    }
+
+    public Function<CoinGeneratorBehavior, Answer> getFunction3(){
+        return (coinGeneratorBehavior -> {
+            final int TIMES_TO_RUN = 30;
+            int[] tossesTaken = new int[TIMES_TO_RUN];
+            int average = 0;
+
+            // if heads add 1, if tails - 1
+            int tossSum;
+            for(int i = 0; i < TIMES_TO_RUN; i++)
+            {
+                tossSum = 0;
+                boolean sumIsFour = false;
+                int tosses = 0;
+                while(!sumIsFour)
+                {
+                    // if the coin was heads, add one, otherwise subtract one
+                    tossSum += coinGeneratorBehavior.generate() ? 1 : -1;
+                    sumIsFour = tossSum == 4;
+                    tosses++;
+                }
+                tossesTaken[i] = tosses;
+                average += tosses;
+            }
+            average /= TIMES_TO_RUN;
+
+            System.out.print("Tosses taken to reach a Computational Sum of 4: { ");
+            for(int i = 0; i < TIMES_TO_RUN; i++) {
+                if (i < TIMES_TO_RUN - 1) { System.out.print(tossesTaken[i] + ", ");
+                } else { System.out.println(tossesTaken[i] + " }"); }
+            }
+            return new Answer<>(average);
+        });
     }
 }

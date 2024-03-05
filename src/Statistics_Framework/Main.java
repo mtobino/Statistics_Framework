@@ -15,7 +15,7 @@ public class Main {
         coinSimulation.simulate(main.getCompSumOfFourWithCoin(), "On average, how many coin tosses till I get a computational sum of 4 if heads is equal to 1 and tails is equal to -1?");
     }
 
-    public Function<CoinGeneratorBehavior, Answer> getTenCoinsInARow(){
+    public Function<CoinGeneratorBehavior, Answer<Integer>> getTenCoinsInARow(){
         return (generatorBehavior -> {
             final int TIMES_TO_RUN = 20;
             int[] tossesTaken = new int[TIMES_TO_RUN];
@@ -43,11 +43,11 @@ public class Main {
                 if (i < TIMES_TO_RUN - 1) { System.out.print(tossesTaken[i] + ", ");
                 } else { System.out.println(tossesTaken[i] + " }"); }
             }
-            return new Answer(average);
+            return new Answer<>(average);
         });
     }
 
-    public Function<DiceGeneratorBehavior, Answer> getCompSumOfFourBeforeEight(){
+    public Function<DiceGeneratorBehavior, Answer<Double>> getCompSumOfFourBeforeEight(){
         return (diceGenerator -> {
             int fourCount = 0;
             final int TIMES_TO_RUN = 500;
@@ -63,12 +63,12 @@ public class Main {
             System.out.println("Probability of rolling a 4 before an 8: " +
                     ( (double) fourCount / (double) TIMES_TO_RUN * 100.0) + "%"
             );
-            return new Answer(( (double) fourCount / (double) TIMES_TO_RUN * 100.0));
+            return new Answer<>(( (double) fourCount / (double) TIMES_TO_RUN * 100.0));
         });
 
     }
 
-    public Function<CoinGeneratorBehavior, Answer> getCompSumOfFourWithCoin(){
+    public Function<CoinGeneratorBehavior, Answer<Integer>> getCompSumOfFourWithCoin(){
         return (coinGeneratorBehavior -> {
             final int TIMES_TO_RUN = 30;
             int[] tossesTaken = new int[TIMES_TO_RUN];

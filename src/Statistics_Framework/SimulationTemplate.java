@@ -24,14 +24,14 @@ public abstract class SimulationTemplate {
         /**
          * Will Setup the generators for each class
          */
-        public abstract void setup();
+        protected abstract void setup();
 
         /**
          * Will run the function passed through
          *
          * @param function     the function that is being tested
          */
-        public abstract void run(Function function);
+        protected abstract void run(Function function);
 
         /**
          * Display the results

@@ -1,10 +1,11 @@
 package Statistics_Framework;
 
 import java.util.function.Function;
-import java.util.function.Predicate;
 
 /**
- * Template class for all Simulations
+ * Template class for all Simulations. Here the actions of simulating
+ * and displaying the results of the simulation are set. The act of
+ * setting up the simulation and running it are determined by the subclasses.
  */
 public abstract class SimulationTemplate {
         protected Answer answer;

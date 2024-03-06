@@ -5,7 +5,7 @@ package Statistics_Framework;
  */
 public class DiceSimulation extends SimulationTemplate{
     @Override
-    public void setup() {
+    protected void setup() {
         generatorBehavior = new DiceGeneratorBehavior();
     }
 }

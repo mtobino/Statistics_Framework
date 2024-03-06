@@ -32,7 +32,7 @@ public abstract class SimulationTemplate {
          *
          * @param function     the function that is being tested
          */
-        protected void run(Function function) {
+        private void run(Function function) {
                 answer = (Answer) function.apply(generatorBehavior);
 
         }
@@ -40,7 +40,7 @@ public abstract class SimulationTemplate {
         /**
          * Display the results
          */
-        public void displayResults(String prompt)
+        private void displayResults(String prompt)
         {
                 System.out.println(prompt + "\nAnswer: " + answer.getAnswer());
         }

@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="a0688e02-0a04-465c-bb53-17377d545e9b" name="Changes" comment="Dice question">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+
+      <change beforePath="$PROJECT_DIR$/src/Statistics_Framework/CoinSimulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Statistics_Framework/CoinSimulation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Statistics_Framework/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Statistics_Framework/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -21,7 +23,7 @@
     </option>
   </component>
   <component name="Git.Merge.Settings">
-    <option name="BRANCH" value="main" />
+    <option name="BRANCH" value="Matt" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">

@@ -14,11 +14,13 @@ public abstract class SimulationTemplate {
          *
          * @param function     the function the simulation will be running
          */
+
         public final void simulate(Function function, String prompt)
         {
                 setup();
                 run(function);
                 displayResults(prompt);
+
         }
 
         /**

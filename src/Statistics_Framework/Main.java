@@ -7,6 +7,7 @@ public class Main {
         SimulationTemplate coinSimulation = new CoinSimulation();
         SimulationTemplate diceSimulation = new DiceSimulation();
 
+
         Main main = new Main();
         coinSimulation.simulate(main.getTenCoinsInARow(), "On average, how many coin tosses till I get 10 heads in a row?");
         System.out.println();
@@ -115,5 +116,6 @@ public class Main {
             }
             return new Answer<>(average);
         });
+
     }
 }

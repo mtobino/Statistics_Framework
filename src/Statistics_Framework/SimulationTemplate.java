@@ -9,6 +9,7 @@ import java.util.function.Function;
  */
 public abstract class SimulationTemplate {
         protected Answer answer;
+        protected GeneratorBehavior generatorBehavior;
         /**
          * The Simulate template method that each simulation will follow
          *
@@ -31,7 +32,10 @@ public abstract class SimulationTemplate {
          *
          * @param function     the function that is being tested
          */
-        protected abstract void run(Function function);
+        protected void run(Function function) {
+                answer = (Answer) function.apply(generatorBehavior);
+
+        }
 
         /**
          * Display the results

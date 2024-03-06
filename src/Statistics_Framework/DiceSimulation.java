@@ -1,7 +1,8 @@
 package Statistics_Framework;
 
-import java.util.function.Function;
-
+/**
+ * Dice Simulation implementation of the Simulation template
+ */
 public class DiceSimulation extends SimulationTemplate{
     @Override
     public void setup() {

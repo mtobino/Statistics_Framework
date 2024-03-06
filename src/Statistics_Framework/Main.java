@@ -7,6 +7,7 @@ public class Main {
         SimulationTemplate coinSimulation = new CoinSimulation();
         SimulationTemplate diceSimulation = new DiceSimulation();
 
+
         Main main = new Main();
         coinSimulation.simulate(main.getTenCoinsInARow(), "On average, how many coin tosses till I get 10 heads in a row?");
         System.out.println();
@@ -14,6 +15,15 @@ public class Main {
         System.out.println();
         coinSimulation.simulate(main.getCompSumOfFourWithCoin(), "On average, how many coin tosses till I get a computational sum of 4 if heads is equal to 1 and tails is equal to -1?");
     }
+
+
+    /**
+     * This method answers the following
+     * question from Canvas and implements it using the framework :
+     * "Repeatedly toss a fair coin until you observe 10 consecutive heads.
+     * Compute the average number of tosses needed until the run of 10 heads is obtained.
+     * @return
+     */
 
     public Function<CoinGeneratorBehavior, Answer<Integer>> getTenCoinsInARow(){
         return (generatorBehavior -> {
@@ -38,15 +48,17 @@ public class Main {
             }
             average /= TIMES_TO_RUN;
 
-            System.out.print("Tosses taken to reach 10 heads: { ");
-            for(int i = 0; i < TIMES_TO_RUN; i++) {
-                if (i < TIMES_TO_RUN - 1) { System.out.print(tossesTaken[i] + ", ");
-                } else { System.out.println(tossesTaken[i] + " }"); }
-            }
             return new Answer<>(average);
         });
     }
 
+    /**
+     * This method answers the following
+     * question from Canvas and implements it using the framework :
+     * "Roll a pair of fair 6-sided dice until their sum is either 4 or 8.
+     * Compute the probability that you get a 4 before you get an 8"
+     * @return
+     */
     public Function<DiceGeneratorBehavior, Answer<Double>> getCompSumOfFourBeforeEight(){
         return (diceGenerator -> {
             int fourCount = 0;
@@ -60,13 +72,17 @@ public class Main {
                 if(roll == 4) { fourCount++; }
             }
 
-            System.out.println("Probability of rolling a 4 before an 8: " +
-                    ( (double) fourCount / (double) TIMES_TO_RUN * 100.0) + "%"
-            );
             return new Answer<>(( (double) fourCount / (double) TIMES_TO_RUN * 100.0));
         });
 
     }
+
+    /**
+     * This method below demonstrates the usage
+     * of implementing this framework for a problem outside of
+     * what is asked to be found in the Canvas Problems #1 and #2
+     * @return
+     */
 
     public Function<CoinGeneratorBehavior, Answer<Integer>> getCompSumOfFourWithCoin(){
         return (coinGeneratorBehavior -> {
@@ -100,5 +116,6 @@ public class Main {
             }
             return new Answer<>(average);
         });
+
     }
 }

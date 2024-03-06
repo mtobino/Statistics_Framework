@@ -6,10 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="a0688e02-0a04-465c-bb53-17377d545e9b" name="Changes" comment="Dice question">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+
       <change beforePath="$PROJECT_DIR$/src/Statistics_Framework/CoinSimulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Statistics_Framework/CoinSimulation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Statistics_Framework/DiceSimulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Statistics_Framework/DiceSimulation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Statistics_Framework/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Statistics_Framework/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Statistics_Framework/SimulationTemplate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Statistics_Framework/SimulationTemplate.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,12 +23,12 @@
     </option>
   </component>
   <component name="Git.Merge.Settings">
-    <option name="BRANCH" value="main" />
+    <option name="BRANCH" value="Matt" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="Matt" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -43,15 +42,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "G:/My Drive/OOD/Fox_and_Rabbits"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;G:/My Drive/OOD/Fox_and_Rabbits&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="G:\My Drive\OOD\Statistics_Framework_Project\src\Statistics_Framework" />
@@ -115,6 +114,29 @@
     </task>
     <option name="localTasksCounter" value="6" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/Matt" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commit" />

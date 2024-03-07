@@ -28,7 +28,7 @@ public class Main {
     public Function<CoinGeneratorBehavior, Answer<Integer>> getTenCoinsInARow(){
         return (generatorBehavior -> {
             final int TIMES_TO_RUN = 20;
-            int[] tossesTaken = new int[TIMES_TO_RUN];
+            //int[] tossesTaken = new int[TIMES_TO_RUN];
             int average = 0;
 
             int tosses, heads;
@@ -43,7 +43,7 @@ public class Main {
                     }
                     tosses++;
                 }
-                tossesTaken[i] = tosses;
+                //tossesTaken[i] = tosses;
                 average += tosses;
             }
             average /= TIMES_TO_RUN;

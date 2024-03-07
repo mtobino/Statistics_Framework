@@ -1,5 +1,6 @@
 package Statistics_Framework;
 
+import java.util.ArrayList;
 import java.util.function.Function;
 
 /**
@@ -10,24 +11,52 @@ import java.util.function.Function;
 public abstract class SimulationTemplate {
         protected Answer answer;
         protected GeneratorBehavior generatorBehavior;
+        protected ArrayList<Answer> trialResults;
+        protected Trial trial;
         /**
          * The Simulate template method that each simulation will follow
          *
-         * @param function     the function the simulation will be running
+         * @param function      the function the simulation will be running
+         * @param prompt        the prompt the user wants printed
          */
-
         public final void simulate(Function function, String prompt)
         {
-                setup();
-                run(function);
-                displayResults(prompt);
+                simulate(function, prompt, 50, false);
 
+        }
+        public final void simulate(Function function, String prompt, int numOfTrials, boolean isPercentage){
+                setupGenerator();
+                setupTrial(function);
+                runTrials(numOfTrials);
+                computeFinalAnswer(numOfTrials);
+                displayResults(prompt, isPercentage);
+        }
+
+        private void runTrials(int numOfTrials) {
+                for(int i = 0; i < numOfTrials; i++)
+                {
+                        trialResults.add(trial.runTrial(generatorBehavior));
+                }
+        }
+
+        private void computeFinalAnswer(int numOfTrials)
+        {
+                double totalSum = 0;
+                for(Answer answer1 : trialResults){
+                        totalSum += (double) answer1.getAnswer();
+                }
+                answer = new Answer<>(totalSum / numOfTrials);
+
+        }
+
+        private void setupTrial(Function function) {
+                trial = new Trial(function);
         }
 
         /**
          * Will Setup the generators for each class
          */
-        protected abstract void setup();
+        protected abstract void setupGenerator();
 
         /**
          * Will run the function passed through
@@ -42,9 +71,15 @@ public abstract class SimulationTemplate {
         /**
          * Display the results
          */
-        private void displayResults(String prompt)
+        private void displayResults(String prompt, boolean isPercentage)
         {
-                System.out.println(prompt + "\nAnswer: " + answer.getAnswer());
+                if(isPercentage){
+                        System.out.println(prompt + "\nAnswer: " + answer.getAnswer());
+                }
+                else{
+                        System.out.println(prompt + "\nAnswer: " + ((int) answer.getAnswer()));
+                }
+
         }
 
 

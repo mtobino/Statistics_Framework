@@ -1,6 +1,7 @@
 package Statistics_Framework;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Function;
 
 /**
@@ -10,9 +11,12 @@ import java.util.function.Function;
  */
 public abstract class SimulationTemplate {
         protected Answer answer;
+        protected double finalAnswer;
         protected GeneratorBehavior generatorBehavior;
-        protected ArrayList<Answer> trialResults;
+        protected List<Double> trialResults;
         protected Trial trial;
+        private static final int DEFAULT_NUM_OF_TRIALS = 50;
+        private static final boolean DEFAULT_IS_PERCENTAGE = false;
         /**
          * The Simulate template method that each simulation will follow
          *
@@ -21,8 +25,14 @@ public abstract class SimulationTemplate {
          */
         public final void simulate(Function function, String prompt)
         {
-                simulate(function, prompt, 50, false);
+                simulate(function, prompt, DEFAULT_NUM_OF_TRIALS, DEFAULT_IS_PERCENTAGE);
 
+        }
+        public final void simulate(Function function, String prompt, int numOfTrials){
+                simulate(function, prompt, numOfTrials, DEFAULT_IS_PERCENTAGE);
+        }
+        public final void simulate(Function function, String prompt, boolean isPercentage){
+                simulate(function, prompt, DEFAULT_NUM_OF_TRIALS, isPercentage);
         }
         public final void simulate(Function function, String prompt, int numOfTrials, boolean isPercentage){
                 setupGenerator();
@@ -32,6 +42,10 @@ public abstract class SimulationTemplate {
                 displayResults(prompt, isPercentage);
         }
 
+        /**
+         *
+         * @param numOfTrials
+         */
         private void runTrials(int numOfTrials) {
                 for(int i = 0; i < numOfTrials; i++)
                 {
@@ -39,45 +53,44 @@ public abstract class SimulationTemplate {
                 }
         }
 
+        /**
+         * Sum up all the trials and divide them by the number of tests performed
+         *
+         * @param numOfTrials
+         */
         private void computeFinalAnswer(int numOfTrials)
         {
-                double totalSum = 0;
-                for(Answer answer1 : trialResults){
-                        totalSum += (double) answer1.getAnswer();
+                //double totalSum = 0;
+                for(Double answer1 : trialResults){
+                        finalAnswer += answer1;
                 }
-                answer = new Answer<>(totalSum / numOfTrials);
+                finalAnswer /= numOfTrials;
 
         }
 
+        /**
+         * Set up the trial that is going to be tested
+         *
+         * @param function      the function that serves as a trial to be tested
+         */
         private void setupTrial(Function function) {
                 trial = new Trial(function);
+                trialResults = new ArrayList<>();
         }
-
         /**
          * Will Setup the generators for each class
          */
         protected abstract void setupGenerator();
-
-        /**
-         * Will run the function passed through
-         *
-         * @param function     the function that is being tested
-         */
-        private void run(Function function) {
-                answer = (Answer) function.apply(generatorBehavior);
-
-        }
-
         /**
          * Display the results
          */
         private void displayResults(String prompt, boolean isPercentage)
         {
                 if(isPercentage){
-                        System.out.println(prompt + "\nAnswer: " + answer.getAnswer());
+                        System.out.println(prompt + "\nAnswer: " + (finalAnswer * 100));
                 }
                 else{
-                        System.out.println(prompt + "\nAnswer: " + ((int) answer.getAnswer()));
+                        System.out.printf(prompt + "\nAnswer: %.0f", finalAnswer);
                 }
 
         }

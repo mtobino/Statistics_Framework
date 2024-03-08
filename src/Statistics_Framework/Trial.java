@@ -3,16 +3,16 @@ package Statistics_Framework;
 import java.util.function.Function;
 
 public class Trial {
-    private Function trial;
+    private Function<GeneratorBehavior, Double> trial;
 
-    public Trial(Function trial){
+    public Trial(Function<GeneratorBehavior, Double> trial){
         this.trial = trial;
     }
 
-    public Function getTrial() {
+    public Function<GeneratorBehavior, Double> getTrial() {
         return trial;
     }
-    public Answer runTrial(GeneratorBehavior generatorBehavior){
-        return (Answer) trial.apply(generatorBehavior);
+    public Double runTrial(GeneratorBehavior generatorBehavior){
+        return trial.apply(generatorBehavior);
     }
 }

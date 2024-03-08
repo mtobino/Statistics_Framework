@@ -10,7 +10,6 @@ import java.util.function.Function;
  * setting up the simulation and running it are determined by the subclasses.
  */
 public abstract class SimulationTemplate {
-        protected Answer answer;
         protected double finalAnswer;
         protected GeneratorBehavior generatorBehavior;
         protected List<Double> trialResults;
@@ -18,7 +17,7 @@ public abstract class SimulationTemplate {
         private static final int DEFAULT_NUM_OF_TRIALS = 50;
         private static final boolean DEFAULT_IS_PERCENTAGE = false;
         /**
-         * The Simulate template method that each simulation will follow
+         * The most basic version of the Simulate template method that each simulation will follow
          *
          * @param function      the function the simulation will be running
          * @param prompt        the prompt the user wants printed
@@ -28,12 +27,40 @@ public abstract class SimulationTemplate {
                 simulate(function, prompt, DEFAULT_NUM_OF_TRIALS, DEFAULT_IS_PERCENTAGE);
 
         }
+
+        /**
+         * A slightly more advanced version of the basic Simulate template method
+         * where the user can additionally control how many times the trial will be tested
+         *
+         * @param function      the function the simulation will be running
+         * @param prompt        the prompt the user wants printed
+         * @param numOfTrials   the amount of times the trial will be tested
+         */
         public final void simulate(Function function, String prompt, int numOfTrials){
                 simulate(function, prompt, numOfTrials, DEFAULT_IS_PERCENTAGE);
         }
+
+        /**
+         * A slightly more advanced version of the basic Simulate template method
+         * where the user can additionally control if the computed result represents a percentage or not
+         *
+         * @param function      the function the simulation will be running
+         * @param prompt        the prompt the user wants printed
+         * @param isPercentage  true, iff the user wants a percent as a return
+         */
         public final void simulate(Function function, String prompt, boolean isPercentage){
                 simulate(function, prompt, DEFAULT_NUM_OF_TRIALS, isPercentage);
         }
+        /**
+         * The full version of the Simulate template method where the user can
+         * additionally control how many times the trial will be tested and if the computed result is
+         * a percentage or not.
+         *
+         * @param function      the function the simulation will be running
+         * @param prompt        the prompt the user wants printed
+         * @param numOfTrials   the amount of times the trial will be tested
+         * @param isPercentage  true, iff the user wants a percent as a return
+         */
         public final void simulate(Function function, String prompt, int numOfTrials, boolean isPercentage){
                 setupGenerator();
                 setupTrial(function);
@@ -43,8 +70,9 @@ public abstract class SimulationTemplate {
         }
 
         /**
+         * Test the trial as many times as specified, and store the results in a List
          *
-         * @param numOfTrials
+         * @param numOfTrials   the amount of times the trial will be tested
          */
         private void runTrials(int numOfTrials) {
                 for(int i = 0; i < numOfTrials; i++)
@@ -56,7 +84,7 @@ public abstract class SimulationTemplate {
         /**
          * Sum up all the trials and divide them by the number of tests performed
          *
-         * @param numOfTrials
+         * @param numOfTrials   the number of trials made
          */
         private void computeFinalAnswer(int numOfTrials)
         {
@@ -87,12 +115,11 @@ public abstract class SimulationTemplate {
         private void displayResults(String prompt, boolean isPercentage)
         {
                 if(isPercentage){
-                        System.out.println(prompt + "\nAnswer: " + (finalAnswer * 100));
+                        System.out.println(prompt + "\nAnswer: " + (finalAnswer * 100) + "%");
                 }
                 else{
-                        System.out.printf(prompt + "\nAnswer: %.0f", finalAnswer);
+                        System.out.printf(prompt + "\nAnswer: %.0f\n", finalAnswer);
                 }
-
         }
 
 

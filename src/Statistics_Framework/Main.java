@@ -9,11 +9,11 @@ public class Main {
 
 
         Main main = new Main();
-        coinSimulation.simulate(main.getTenCoinsInARow(), "On average, how many coin tosses till I get 10 heads in a row?");
+        coinSimulation.simulate(main.getTenCoinsInARowTrial(), "On average, how many coin tosses till I get 10 heads in a row?", 500);
         System.out.println();
-        diceSimulation.simulate(main.getCompSumOfFourBeforeEight(), "What is the probability I roll a dice computational sum of 4 before an 8?");
+        diceSimulation.simulate(main.getCompSumOfFourBeforeEightTrial(), "What is the probability I roll a dice computational sum of 4 before an 8?", 500, true);
         System.out.println();
-        coinSimulation.simulate(main.getCompSumOfFourWithCoin(), "On average, how many coin tosses till I get a computational sum of 4 if heads is equal to 1 and tails is equal to -1?");
+        coinSimulation.simulate(main.getCompSumOfFourWithCoinTrial(), "On average, how many coin tosses till I get a computational sum of 4 if heads is equal to 1 and tails is equal to -1?");
     }
 
 
@@ -24,31 +24,22 @@ public class Main {
      * Compute the average number of tosses needed until the run of 10 heads is obtained.
      * @return
      */
-
-    public Function<CoinGeneratorBehavior, Answer<Integer>> getTenCoinsInARow(){
-        return (generatorBehavior -> {
-            final int TIMES_TO_RUN = 20;
-            int[] tossesTaken = new int[TIMES_TO_RUN];
-            int average = 0;
-
-            int tosses, heads;
-            for(int i = 0; i < TIMES_TO_RUN; i++){
-                tosses = 0;
-                heads = 0;
-                while (heads < 10) {
-                    if(generatorBehavior.generate()) { // true = heads
-                        heads++;
-                    } else { // false = tails
-                        heads = 0;
-                    }
-                    tosses++;
+    public Function<CoinGeneratorBehavior, Double> getTenCoinsInARowTrial(){
+        return(coinGeneratorBehavior -> {
+            double average = 0;
+            int tosses = 0;
+            int heads = 0;
+            while (heads < 10) {
+                if(coinGeneratorBehavior.generate()) { // true = heads
+                    heads++;
+                } else { // false = tails
+                    heads = 0;
                 }
-                tossesTaken[i] = tosses;
-                average += tosses;
+                tosses++;
             }
-            average /= TIMES_TO_RUN;
-
-            return new Answer<>(average);
+            //tossesTaken[i] = tosses;
+            average += tosses;
+            return average;
         });
     }
 
@@ -59,20 +50,17 @@ public class Main {
      * Compute the probability that you get a 4 before you get an 8"
      * @return
      */
-    public Function<DiceGeneratorBehavior, Answer<Double>> getCompSumOfFourBeforeEight(){
+    public Function<DiceGeneratorBehavior, Double> getCompSumOfFourBeforeEightTrial(){
         return (diceGenerator -> {
-            int fourCount = 0;
-            final int TIMES_TO_RUN = 500;
-
+            double fourCount = 0;
             int roll;
-            for(int i = 0; i < TIMES_TO_RUN; i++) {
+
                 do {
                     roll = diceGenerator.generate() + diceGenerator.generate();
                 } while (roll != 4 && roll != 8);
                 if(roll == 4) { fourCount++; }
-            }
 
-            return new Answer<>(( (double) fourCount / (double) TIMES_TO_RUN * 100.0));
+            return fourCount;
         });
 
     }
@@ -83,39 +71,19 @@ public class Main {
      * what is asked to be found in the Canvas Problems #1 and #2
      * @return
      */
-
-    public Function<CoinGeneratorBehavior, Answer<Integer>> getCompSumOfFourWithCoin(){
+    public Function<CoinGeneratorBehavior, Double> getCompSumOfFourWithCoinTrial(){
         return (coinGeneratorBehavior -> {
-            final int TIMES_TO_RUN = 30;
-            int[] tossesTaken = new int[TIMES_TO_RUN];
-            int average = 0;
-
-            // if heads add 1, if tails - 1
-            int tossSum;
-            for(int i = 0; i < TIMES_TO_RUN; i++)
+            int tossSum = 0;
+            boolean sumIsFour = false;
+            double tosses = 0;
+            while(!sumIsFour)
             {
-                tossSum = 0;
-                boolean sumIsFour = false;
-                int tosses = 0;
-                while(!sumIsFour)
-                {
-                    // if the coin was heads, add one, otherwise subtract one
-                    tossSum += coinGeneratorBehavior.generate() ? 1 : -1;
-                    sumIsFour = tossSum == 4;
-                    tosses++;
-                }
-                tossesTaken[i] = tosses;
-                average += tosses;
+                // if the coin was heads, add one, otherwise subtract one
+                tossSum += coinGeneratorBehavior.generate() ? 1 : -1;
+                sumIsFour = tossSum == 4;
+                tosses++;
             }
-            average /= TIMES_TO_RUN;
-
-            System.out.print("Tosses taken to reach a Computational Sum of 4: { ");
-            for(int i = 0; i < TIMES_TO_RUN; i++) {
-                if (i < TIMES_TO_RUN - 1) { System.out.print(tossesTaken[i] + ", ");
-                } else { System.out.println(tossesTaken[i] + " }"); }
-            }
-            return new Answer<>(average);
+            return tosses;
         });
-
     }
 }
